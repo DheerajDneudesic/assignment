@@ -1,0 +1,39 @@
+
+
+<div class="container-fluid ml-5" >
+    <div class="row mt-5 ml-5 mb-5">
+        <div class="col-md-2">
+            <button (click)="getList()"type="button" class="btn btn-primary">Get List</button>
+        </div>
+    </div>
+
+    <div *ngIf="hideContent">
+        <div>
+            <table id="table">
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th *ngIf="hideSalary">Salary</th>
+                  <th>Edit</th>
+                </tr>
+                <tr *ngFor = "let user of userDetailss">
+                  <td [ngClass]="[user.isNoticePeriod ?'btn-change': '']">{{user.name}}</td>
+                  <td>{{showAge}}</td>
+                  <td *ngIf="hideSalary">{{user.salary}}</td>
+                  <td><button style="background-color: rebeccapurple; color: white;" (click)="editDetails()">Edit</button></td>
+                </tr>
+              </table>
+              <button style="padding-top: 10px;" (click)="download()">Download Pdf</button>
+        </div>
+    
+      
+          <div style="padding-top: 10px;" class="row mt-5 ml-5">
+            <div class="col-md-2">
+                <button (click)="logOut()"type="button" class="btn btn-primary">Log Out</button>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
